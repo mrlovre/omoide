@@ -1,0 +1,67 @@
+\documentclass[10pt, a4paper]{article}
+
+\usepackage[left=1.50cm, right=1.50cm, top=1.5cm, bottom=1.5cm, footskip=0.9cm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Noto Sans CJK JP Thin}
+\usepackage{setspace}
+\usepackage{ragged2e}
+\usepackage[all]{nowidow}
+
+\setlength\parindent{0pt}
+
+\usepackage[explicit]{titlesec}
+\usepackage{ulem}
+\titleformat{\section}
+  {\normalfont\Large}{\thesubsection}{1em}{\uline{#1}}
+
+\renewcommand{\framebox}[1]{#1}
+
+\newcommand{\kanji}[3]{%
+    \begin{minipage}[t]{1.93cm}
+      \singlespacing%
+      \centering%
+      \begin{minipage}[t][0.3cm][b]{1.8cm}
+        \begin{Center}
+          \small #2
+        \end{Center}
+      \end{minipage}
+      \begin{minipage}[t]{1.93cm}
+        \centering \Huge \strut #1
+      \end{minipage}
+      \begin{minipage}[t]{1.93cm}
+        \begin{Center}
+          #3
+        \end{Center}
+      \end{minipage}%
+    \end{minipage}%
+}
+
+\newcommand{\vocab}[3]{%
+  \begin{minipage}[t]{0.49\linewidth}
+    \singlespacing%
+    \begin{minipage}[c]{0.0pt}
+      \strut \Large #1
+    \end{minipage}%
+    \begin{minipage}[t]{0.98\linewidth}
+      \raggedleft \strut #2\\#3
+    \end{minipage}%
+  \end{minipage}%
+}
+
+
+%\renewcommand{\eq}[1]{\Huge #1}
+
+%\setCJKmainfont{FandolSong}
+%\setCJKmainfont[Path=/usr/share/fonts/noto-cjk/]{NotoSerifCJK-Regular.ttc}
+%\usepackage{microtype}
+%\setlength{\parskip}{0em}
+\date{}
+
+\begin{document}
+\begin{center}
+\vspace*{-0.5cm}
+\Huge {WaniKani Kanji \& Vocabulary List}
+\vspace*{1cm}
+\end{center}
+\input{output}
+\end{document}
