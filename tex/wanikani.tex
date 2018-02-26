@@ -5,9 +5,12 @@
 \setmainfont{Noto Sans CJK JP Thin}
 \usepackage{setspace}
 \usepackage{ragged2e}
+\usepackage{calc}
 \usepackage[all]{nowidow}
 
-\setlength\parindent{0pt}
+\parindent=0pt
+\leftskip=0pt
+
 
 \usepackage[explicit]{titlesec}
 \usepackage{ulem}
@@ -17,27 +20,29 @@
 \renewcommand{\framebox}[1]{#1}
 
 \newcommand{\kanji}[3]{%
-    \begin{minipage}[t]{1.93cm}
-      \singlespacing%
-      \centering%
-      \begin{minipage}[t][0.3cm][b]{1.8cm}
-        \begin{Center}
-          \small #2
-        \end{Center}
-      \end{minipage}
-      \begin{minipage}[t]{1.93cm}
-        \centering \Huge \strut #1
-      \end{minipage}
-      \begin{minipage}[t]{1.93cm}
-        \begin{Center}
-          #3
-        \end{Center}
-      \end{minipage}%
+  \begin{minipage}[t]{0.12124\linewidth}
+    \singlespacing%
+    \centering%
+    \begin{minipage}[t][0.3cm][b]{2.0cm}
+      \begin{Center}%
+        \small #2
+      \end{Center}%
+    \end{minipage}
+    \begin{minipage}[t]{\linewidth}
+      \begin{center}%
+        \Huge \strut #1
+      \end{center}%
+    \end{minipage}
+    \begin{minipage}[t]{\linewidth}
+      \begin{Center}%
+        #3
+      \end{Center}%
     \end{minipage}%
+  \end{minipage}%
 }
 
 \newcommand{\vocab}[3]{%
-  \begin{minipage}[t]{0.49\linewidth}
+  \begin{minipage}[t]{0.4965\linewidth}
     \singlespacing%
     \begin{minipage}[c]{0.0pt}
       \strut \Large #1
