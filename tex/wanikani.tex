@@ -7,10 +7,16 @@
 \usepackage{ragged2e}
 \usepackage{calc}
 \usepackage[all]{nowidow}
+\usepackage{afterpage}
+
+\newcommand\blankpage{%
+  \null
+  \thispagestyle{empty}%
+  \addtocounter{page}{-1}%
+  \newpage}
 
 \parindent=0pt
 \leftskip=0pt
-
 
 \usepackage[explicit]{titlesec}
 \usepackage{ulem}
@@ -18,6 +24,14 @@
   {\normalfont\Large}{\thesubsection}{1em}{\uline{#1}}
 
 \renewcommand{\framebox}[1]{#1}
+
+\usepackage{tocloft}
+
+\renewcommand{\cfttoctitlefont}{\normalfont\Large\underline}
+\setlength{\cftaftertoctitleskip}{2em}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecfont}{\normalfont}
+\renewcommand{\cftsecpagefont}{\normalfont}
 
 \newcommand{\kanji}[3]{%
   \begin{minipage}[t]{0.12124\linewidth}
@@ -42,7 +56,7 @@
 }
 
 \newcommand{\vocab}[3]{%
-  \begin{minipage}[t]{0.4965\linewidth}
+  \begin{minipage}[t]{0.49\linewidth}
     \singlespacing%
     \begin{minipage}[c]{0.0pt}
       \strut \Large #1
@@ -51,22 +65,22 @@
       \raggedleft \strut #2\\#3
     \end{minipage}%
   \end{minipage}%
+\hfill
 }
 
-
-%\renewcommand{\eq}[1]{\Huge #1}
-
-%\setCJKmainfont{FandolSong}
-%\setCJKmainfont[Path=/usr/share/fonts/noto-cjk/]{NotoSerifCJK-Regular.ttc}
-%\usepackage{microtype}
-%\setlength{\parskip}{0em}
-\date{}
-
 \begin{document}
-\begin{center}
-\vspace*{-0.5cm}
-\Huge {WaniKani Kanji \& Vocabulary List}
-\vspace*{1cm}
-\end{center}
+\begin{titlepage}
+  \centering
+  \vspace*{\fill}
+  {\fontsize{48}{57.6} \textsc{WaniKani Kanji \& Vocabulary List}}
+  \vspace*{\fill}
+\end{titlepage}
+\blankpage
+\pagenumbering{gobble}
+\tableofcontents
+\clearpage
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\pagenumbering{arabic}
+\setcounter{page}{1}
 \input{output}
 \end{document}
