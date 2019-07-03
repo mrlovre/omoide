@@ -14,3 +14,5 @@ Put your API key into API_KEY file.
 Execute whole notebook. Play around with script if you wish to tweak it.
 List is written to tex/output.tex file.
 Compile wanikani.tex using XeTeX to produce PDF document.
+
+Output should look like [this](wanikani.pdf).
